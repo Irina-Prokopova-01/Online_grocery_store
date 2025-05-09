@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     "users",
     "django_filters",
     "django_celery_beat",
+    "catalog",
+    "cart"
 ]
 
 MIDDLEWARE = [
