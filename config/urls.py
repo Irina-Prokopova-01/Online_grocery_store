@@ -5,5 +5,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("users/", include("users.urls", namespace="users")),
     path("catalog/", include("catalog.urls", namespace="catalog")),
-    # path("crat/", include("crat.urls", namespace="crat")),
+    path("cart/", include("cart.urls", namespace="cart")),
 ]

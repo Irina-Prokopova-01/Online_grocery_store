@@ -69,7 +69,7 @@ class SubCategory(models.Model):
 
 
 class Product(models.Model):
-    title = models.CharField(
+    name = models.CharField(
         max_length=150, verbose_name="Название", help_text="Введите название продукта"
     )
     description = models.TextField(
@@ -114,9 +114,8 @@ class Product(models.Model):
     )
 
     def __str__(self):
-        return f"{self.title} {self.price}"
+        return f"{self.name} {self.price}"
 
     class Meta:
         verbose_name = "продукт"
         verbose_name_plural = "продукты"
-        ordering = ["title"]
