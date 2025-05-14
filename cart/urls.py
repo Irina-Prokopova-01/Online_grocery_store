@@ -13,7 +13,7 @@ router.register(r"cart-items", CartItemViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
-    # path("cart/detail/", CartDetailApiView.as_view(), name="cart-detail"),
+    # path("cart/create/", CartViewSet.as_view({'create': 'create'}), name="cart-create"),
     path("cart/clear/", CartViewSet.as_view({'delete': 'clear'}), name="clear-cart")
 ]
 

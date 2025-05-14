@@ -6,9 +6,6 @@ from catalog.models import Product
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    # def total_quantity(self, obj):
-    #     return sum(item.quantity for item in obj.items.all())
-
     def __str__(self):
         return f"Корзина {self.user.email}"
 
