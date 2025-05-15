@@ -4,6 +4,12 @@ from catalog.serializers import ProductSerializer
 
 
 class CartItemSerializer(serializers.ModelSerializer):
+    """
+    Сериализатор для элементов корзины.
+    Позволяет преобразовывать объекты CartItem в JSON и обратно.
+    Включает информацию о товаре и общей стоимости.
+    """
+
     product = ProductSerializer(read_only=True)
     total_price = serializers.SerializerMethodField()
 
@@ -16,6 +22,12 @@ class CartItemSerializer(serializers.ModelSerializer):
 
 
 class CartSerializer(serializers.ModelSerializer):
+    """
+    Сериализатор для корзины пользователя.
+    Позволяет преобразовывать объекты Cart в JSON и обратно.
+    Включает информацию о товарах, их количестве и общей стоимости.
+    """
+
     items = CartItemSerializer(many=True, read_only=True)
     total_items = serializers.SerializerMethodField()
     total_prices = serializers.SerializerMethodField()
@@ -34,8 +46,3 @@ class CartSerializer(serializers.ModelSerializer):
     def get_total_names(self, obj):
         unique_products = {item.product.id for item in obj.items.all()}
         return len(unique_products)
-
-
-
-
-

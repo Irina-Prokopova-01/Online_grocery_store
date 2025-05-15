@@ -2,6 +2,8 @@ from django.db import models
 
 
 class Category(models.Model):
+    """Модель для представления категории товаров."""
+
     title = models.CharField(
         max_length=150,
         verbose_name="Название категории",
@@ -32,6 +34,8 @@ class Category(models.Model):
 
 
 class SubCategory(models.Model):
+    """Модель для представления подкатегории товаров."""
+
     title = models.CharField(
         max_length=150,
         verbose_name="Название подкатегории",
@@ -69,6 +73,8 @@ class SubCategory(models.Model):
 
 
 class Product(models.Model):
+    """Модель для представления товаров."""
+
     name = models.CharField(
         max_length=150, verbose_name="Название", help_text="Введите название продукта"
     )

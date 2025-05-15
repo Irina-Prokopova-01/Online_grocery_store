@@ -1,11 +1,14 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from users.services import UserManager
+
 
 class User(AbstractUser):
     """
     Модель пользователя
     """
+
     username = None
     email = models.EmailField(unique=True, help_text="Укажите вашу почту")
     first_name = models.CharField(max_length=30, help_text="Укажите ваше имя")
@@ -17,6 +20,8 @@ class User(AbstractUser):
         null=True,
         help_text="Введите номер телефона",
     )
+
+    objects = UserManager()
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

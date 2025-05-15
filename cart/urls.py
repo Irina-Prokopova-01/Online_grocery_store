@@ -1,4 +1,5 @@
 from django.urls import path, include
+
 # from rest_framework.routers import SimpleRouter
 from rest_framework.routers import DefaultRouter
 from .apps import CartConfig
@@ -11,13 +12,6 @@ router.register(r"cart", CartViewSet, basename="cart")
 router.register(r"cart-items", CartItemViewSet)
 
 
-urlpatterns = [
-    path("", include(router.urls)),
-    # path("cart/create/", CartViewSet.as_view({'create': 'create'}), name="cart-create"),
-    path("cart/clear/", CartViewSet.as_view({'delete': 'clear'}), name="clear-cart")
-]
+urlpatterns = [path("", include(router.urls))]
 
 urlpatterns += router.urls
-
-
-
