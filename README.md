@@ -12,7 +12,7 @@
 
 ### Модели данных:
 
-* Product (связь с SubCategory, Category)
+* Product (связь с Category через SubCategory)
 
 * Category
 

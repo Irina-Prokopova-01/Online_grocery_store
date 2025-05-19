@@ -9,19 +9,19 @@ class Category(models.Model):
         verbose_name="Название категории",
         help_text="Введите название категории",
     )
-    slug = models.SlugField(unique=True, blank=True, null=True)
+    slug = models.SlugField(unique=True)
     image = models.ImageField(
         upload_to="images/category/",
         verbose_name="Изображение категории",
-        blank=True,
-        null=True,
         help_text="Загрузите фотографию продукта",
+        default="image_category"
     )
     description = models.TextField(
         verbose_name="Описание",
-        blank=True,
-        null=True,
         help_text="Введите описание категории",
+        blank=True,
+        null=False,
+        default="Описание недоступно",
     )
 
     def __str__(self):
@@ -42,22 +42,20 @@ class SubCategory(models.Model):
         help_text="Введите название подкатегории",
     )
     slug = models.SlugField(
-        unique=True,
-        blank=True,
-        null=True,
+        unique=True
     )
     image = models.ImageField(
         upload_to="images/subcategories/",
         verbose_name="Изображение подкатегории",
-        blank=True,
-        null=True,
         help_text="Загрузите фотографию продукта",
+        default="image_subcategory"
     )
     description = models.TextField(
         verbose_name="Описание",
         blank=True,
-        null=True,
-        help_text="Введите описание категории",
+        null=False,
+        default="Описание недоступно",
+        help_text="Введите описание категории"
     )
     category = models.ForeignKey(
         Category, related_name="subcategories", on_delete=models.CASCADE
@@ -81,40 +79,32 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name="Описание",
         blank=True,
-        null=True,
+        null=False,
+        default="Описание недоступно",
         help_text="Введите описание продукта",
     )
     image_small = models.ImageField(
         upload_to="images/products/small/",
         verbose_name="Изображение маленькое",
-        blank=True,
-        null=True,
         help_text="Загрузите фотографию продукта",
+        default="image_small_product"
     )
     image_medium = models.ImageField(
         upload_to="images/products/medium/",
         verbose_name="Изображение среднее",
-        blank=True,
-        null=True,
         help_text="Загрузите фотографию продукта",
+        default="image_medium_product"
     )
     image_large = models.ImageField(
         upload_to="images/products/large/",
         verbose_name="Изображение большое",
-        blank=True,
-        null=True,
         help_text="Загрузите фотографию продукта",
+        default="image_large_product"
     )
-    # category = models.ForeignKey(
-    #     Category,
-    #     on_delete=models.CASCADE,
-    #     related_name="products",
-    #     verbose_name="Категория",
-    # )
     price = models.FloatField(verbose_name="Цена", help_text="Введите цену продукта")
     created_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateField(auto_now=True, verbose_name="Дата изменения")
-    slug = models.SlugField(unique=True, blank=True, null=True)
+    slug = models.SlugField(unique=True)
     subcategory = models.ForeignKey(
         SubCategory, related_name="products", on_delete=models.CASCADE
     )
