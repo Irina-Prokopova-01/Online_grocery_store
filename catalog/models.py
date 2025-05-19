@@ -105,12 +105,12 @@ class Product(models.Model):
         null=True,
         help_text="Загрузите фотографию продукта",
     )
-    category = models.ForeignKey(
-        Category,
-        on_delete=models.CASCADE,
-        related_name="products",
-        verbose_name="Категория",
-    )
+    # category = models.ForeignKey(
+    #     Category,
+    #     on_delete=models.CASCADE,
+    #     related_name="products",
+    #     verbose_name="Категория",
+    # )
     price = models.FloatField(verbose_name="Цена", help_text="Введите цену продукта")
     created_at = models.DateField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateField(auto_now=True, verbose_name="Дата изменения")

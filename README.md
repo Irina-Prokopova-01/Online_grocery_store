@@ -137,13 +137,13 @@ git clone https://github.com/Irina-Prokopova-01/Online_grocery_store
 
 ### Примеры запросов к API
 
-1. Получение всех категорий:
+1. Получение всех категорий (в том числе с подкатегориями):
    
-   GET /catalog/category/ 
+   GET /catalog/category-list/ 
 
-2. Получение всех продуктов:
+2. Получение всех продуктов (в том числе с категорией и подкатегорией):
    
-   GET /catalog/product/
+   GET /catalog/product-list/
 
 3. Добавление продукта в корзину (требуется авторизация):
    

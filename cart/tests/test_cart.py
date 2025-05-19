@@ -40,9 +40,9 @@ def category():
 
 
 @pytest.fixture
-def product(category, subcategory):
+def product(subcategory):
     return Product.objects.create(
-        name="Test Product", price=10, category=category, subcategory=subcategory
+        name="Test Product", price=10, subcategory=subcategory
     )
 
 

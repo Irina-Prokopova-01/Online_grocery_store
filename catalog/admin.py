@@ -41,10 +41,17 @@ class ProductAdmin(admin.ModelAdmin):
         "name",
         "description",
         "slug",
-        "category",
         "subcategory",
         "price",
         "image_small",
         "image_medium",
         "image_large",
+        "get_category",
     )
+
+
+    def get_category(self, obj):
+        return obj.subcategory.category.title if obj.subcategory else None
+    get_category.short_description = 'Category'
+
+

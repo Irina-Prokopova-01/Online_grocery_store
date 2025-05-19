@@ -6,9 +6,9 @@ from catalog.views import SubCategoryViewSet, ProductViewSet, CategoryViewSet
 app_name = CatalogConfig.name
 
 router = SimpleRouter()
-router.register(r"subcategory", SubCategoryViewSet)
-router.register(r"product", ProductViewSet)
-router.register(r"category", CategoryViewSet)
+router.register(r"subcategory-list", SubCategoryViewSet)
+router.register(r"product-list", ProductViewSet)
+router.register(r"category-list", CategoryViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
