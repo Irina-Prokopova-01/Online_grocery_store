@@ -31,18 +31,18 @@ def cart(user):
 
 @pytest.fixture
 def subcategory(category):
-    return SubCategory.objects.create(title="Test SubCategory", category=category)
+    return SubCategory.objects.create(title="Test SubCategory", slug="test-subcategory", category=category)
 
 
 @pytest.fixture
 def category():
-    return Category.objects.create(title="Test Category")
+    return Category.objects.create(title="Test Category", slug="test-category")
 
 
 @pytest.fixture
 def product(subcategory):
     return Product.objects.create(
-        name="Test Product", price=10, subcategory=subcategory
+        name="Test Product", price=10, slug="test-product", subcategory=subcategory
     )
 
 
