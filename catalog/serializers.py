@@ -46,7 +46,13 @@ class ProductSerializer(serializers.ModelSerializer):
     Используется для преобразования данных продуктов в формат JSON и обратно.
     Позволяет выполнять операции сериализации и десериализации для продуктов.
     """
+    category = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
         fields = "__all__"
+
+    def get_category(self, obj):
+        if obj.subcategory and obj.subcategory.category:
+            return CategorySerializer(obj.subcategory.category).data
+        return None
